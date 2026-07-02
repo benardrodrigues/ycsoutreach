@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>[YCS] What Type of Youth Are You?</title>
+    <meta
+      name="description"
+      content="Find out more about yourself with this personality quiz!"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <main class="app-shell">
+      <!-- Landing Page -->
+      <section class="landing-page" id="landing-page" aria-labelledby="landing-title">
+        <section class="hero-card">
+          <div class="hero-copy">
+            <div class="brand-mark" aria-hidden="true">
+              <img id="logo-image" src="assets/logo/logo.png" alt="" />
+            </div>
+            <p class="eyebrow">YCS Personality Test</p>
+            <h1 id="landing-title">What kind of youth are you?</h1>
+            <p class="intro">
+              Discover which of the four youth types resonates most with you. Answer 8 quick questions and uncover your personality archetype.
+            </p>
+            <button class="primary-button" id="start-button" type="button" style="margin-top: 24px; width: 100%; max-width: 280px;">Discover Your Personality</button>
+          </div>
+        </section>
+      </section>
+
+      <!-- Intro Page -->
+      <section class="intro-page hidden" id="intro-page" aria-labelledby="intro-title">
+        <section class="hero-card">
+          <div class="hero-copy">
+            <h2 id="intro-title" style="font-size: 2rem; margin-bottom: 16px;">When you were shopping around Somerset...</h2>
+            <p class="intro" style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 24px;">
+              You find yourself in front of a red box. Stepping into the box, you hear a voice whisper: <strong>"Are you ready to be a changemaker?"</strong>
+            </p>
+            <div class="red-box-image" aria-hidden="true">
+              <img id="red-box-image" src="assets/intro/red-box.png" alt="" />
+            </div>
+          </div>
+          <div class="controls" style="margin-top: 32px;">
+            <button class="primary-button" id="intro-start-button" type="button" style="width: 100%;">Let's Begin</button>
+          </div>
+        </section>
+      </section>
+
+      <!-- Quiz Page -->
+      <section class="quiz-page hidden" id="quiz-page" aria-labelledby="quiz-title">
+        <section class="hero-card" aria-labelledby="quiz-title">
+          <div class="question-container" id="question-container">
+            <div class="question-background" id="question-background" aria-hidden="true"></div>
+            <div class="hero-copy" style="position: relative; z-index: 2;">
+              <div class="quiz-topbar">
+                <div>
+                  <p class="step-label" id="step-label">Question 1 of 8</p>
+                  <h2 class="question-title" id="question-title"></h2>
+                </div>
+                <div class="score-pill" aria-live="polite" id="score-pill">0 answered</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="quiz-card" id="quiz-card" style="position: relative; z-index: 2;">
+            <div class="progress-track" aria-hidden="true">
+              <div class="progress-fill" id="progress-fill"></div>
+            </div>
+
+            <form class="options-grid" id="options-form"></form>
+
+            <div class="controls">
+              <button class="secondary-button" id="back-button" type="button">Back</button>
+              <button class="primary-button" id="next-button" type="button" disabled>Next</button>
+            </div>
+          </div>
+
+          <section class="result-card hidden" id="result-card" aria-live="polite">
+            <p class="eyebrow">Your result</p>
+            <div class="result-mascot" aria-hidden="true">
+              <img id="mascot-image" src="assets/mascot/mascot.png" alt="" />
+            </div>
+            <h2 id="result-title"></h2>
+            <p class="result-summary" id="result-summary"></p>
+             <div class="result-actions" style="display: flex; gap: 12px; margin-top: 24px;">
+               <button class="primary-button" id="screenshot-button" type="button" style="flex: 1;">📸 Screenshot</button>
+               <button class="secondary-button" id="share-button" type="button" style="flex: 1;">↗️ Share</button>
+             </div>
+             <button class="primary-button" id="restart-button" type="button" style="margin-top: 24px; width: 100%;">Take the quiz again</button>
+          </section>
+        </section>
+      </section>
+    </main>
+  </body>
+</html>
