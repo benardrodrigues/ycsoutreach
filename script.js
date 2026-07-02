@@ -314,13 +314,33 @@ const shareButton = document.getElementById("share-button");
 
 if (screenshotButton) {
   screenshotButton.addEventListener("click", async () => {
+    let exportCard;
+
     try {
-      const resultCard = document.querySelector(".result-card");
-      const canvas = await html2canvas(resultCard, {
-        backgroundColor: "#fff3f3",
+      exportCard = document.createElement("section");
+      exportCard.className = "result-export-card";
+      exportCard.innerHTML = `
+        <p class="eyebrow">Your Result</p>
+        <div class="result-mascot" aria-hidden="true">
+          <img src="${mascotImage.src}" alt="Mascot Image" />
+        </div>
+        <h2>${resultTitle.textContent}</h2>
+        <p class="result-summary">${resultSummary.textContent}</p>
+      `;
+
+      exportCard.style.position = "fixed";
+      exportCard.style.left = "-9999px";
+      exportCard.style.top = "0";
+      exportCard.style.zIndex = "-1";
+
+      document.body.appendChild(exportCard);
+
+      const canvas = await html2canvas(exportCard, {
+        backgroundColor: "#ffffff",
         scale: 2,
         logging: false
       });
+
       const link = document.createElement("a");
       link.href = canvas.toDataURL("image/png");
       link.download = `my-youth-type-${new Date().getTime()}.png`;
@@ -328,6 +348,10 @@ if (screenshotButton) {
     } catch (error) {
       console.error("Screenshot failed:", error);
       alert("Failed to create screenshot. Please try again.");
+    } finally {
+      if (exportCard?.parentNode) {
+        exportCard.parentNode.removeChild(exportCard);
+      }
     }
   });
 }

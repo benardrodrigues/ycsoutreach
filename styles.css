@@ -336,6 +336,10 @@ h1 {
   padding: 0;
 }
 
+.question-container .hero-copy {
+  padding: clamp(20px, 3vw, 30px);
+}
+
 .question-background {
   position: absolute;
   inset: 0;
@@ -367,6 +371,34 @@ h1 {
 
 .result-breakdown {
   display: none;
+}
+
+.result-export-card {
+  width: min(720px, 92vw);
+  padding: 32px;
+  border-radius: 28px;
+  background: #ffffff;
+  border: 1px solid #f0d6d6;
+  box-shadow: 0 18px 40px rgba(64, 17, 17, 0.12);
+  color: var(--text);
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+}
+
+.result-export-card .result-mascot {
+  margin: 8px 0;
+}
+
+.result-export-card h2 {
+  margin: 0 0 12px;
+  font-size: clamp(2rem, 4vw, 3rem);
+  letter-spacing: -0.04em;
+}
+
+.result-export-card .result-summary {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+  font-size: 1.03rem;
 }
 
 @keyframes rise {
